@@ -1,0 +1,20 @@
+<div class="word-card-container" (click)="flipCard()">
+  <div class="top-row">
+    <div class="bookmark-icon">
+      <mat-icon
+        *ngIf="foreignCard.bookmarked"
+        (click)="toggleBookmarked();$event.stopPropagation()"
+      >bookmark</mat-icon>
+      <mat-icon
+        *ngIf="!foreignCard.bookmarked"
+        (click)="toggleBookmarked();$event.stopPropagation()"
+      >bookmark_border</mat-icon>
+    </div>
+  </div>
+  <div class="main-word" *ngIf="foreignToBase">
+    {{ foreignCard.foreignWord }}
+  </div>
+  <div class="main-word" *ngIf="!foreignToBase">
+    {{ foreignCard.baseWord }}
+  </div>
+</div>

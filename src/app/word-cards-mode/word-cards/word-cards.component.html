@@ -1,0 +1,42 @@
+<div class="word-cards-wrapper">
+  <div class="card-wrapper">
+    <div *ngFor="let foreignCard of foreignCards">
+      <app-word-card
+        [foreignCard]="foreignCard"
+        (moveForwardEvent)="moveForward()"
+        (moveBackwardEvent)="moveBackward()"
+        [hidden]="isCardHidden(foreignCard.uuid)"
+        [foreignToBase]="foreignToBase"
+      ></app-word-card>
+    </div>
+  </div>
+
+  <div class="arrows-row">
+    <button mat-button (click)="shuffleCards()">
+      <mat-icon>
+        shuffle
+      </mat-icon>
+    </button>
+    <button mat-button (click)="moveBackward()" [disabled]="currentCardIndex < 1">
+      <mat-icon>
+        keyboard_arrow_left
+      </mat-icon>
+    </button>
+    <div class="card-index">
+      {{ currentCardIndex + 1 }} / {{ foreignCards.length }}
+    </div>
+    <button mat-button
+      (click)="moveForward()"
+      [disabled]="currentCardIndex === foreignCards.length - 1"
+    >
+      <mat-icon>
+        keyboard_arrow_right
+      </mat-icon>
+    </button>
+    <button mat-button (click)="toggleForeignToBase()">
+      <mat-icon>
+        rotate_90_degrees_ccw
+      </mat-icon>
+    </button>
+  </div>
+</div>

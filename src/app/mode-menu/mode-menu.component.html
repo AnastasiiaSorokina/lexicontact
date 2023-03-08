@@ -1,0 +1,26 @@
+<button mat-button
+  (click)="chooseMode(menuItems.None)"
+  class="back-button"
+  *ngIf="currentMode !== menuItems.None"
+>
+  <mat-icon>
+    arrow_back
+  </mat-icon>
+</button>
+<div [ngSwitch]="currentMode">
+  <div *ngSwitchDefault class="mode-menu-container">
+    <div class="mode-menu-greeting">
+      Hi! Pick a mode
+    </div>
+    <div *ngFor="let mode of menuItems | keyvalue" class="mode-button-container">
+      <div *ngIf="mode.value !== menuItems.None">
+        <button mat-raised-button (click)="chooseMode(mode.value)" class="mode-button">
+          {{ mode.value }}
+        </button>
+      </div>
+    </div>
+  </div>
+  <app-word-cards *ngSwitchCase="menuItems.WordCards"></app-word-cards>
+  <div *ngSwitchCase="menuItems.TestMatch"></div>
+</div>
+

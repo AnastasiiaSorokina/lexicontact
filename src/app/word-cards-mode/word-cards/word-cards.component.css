@@ -1,0 +1,30 @@
+.word-cards-wrapper {
+  position: relative;
+  height: 300px;
+}
+
+.card-wrapper {
+  text-align: center;
+}
+
+.arrows-row {
+  text-align: center;
+  padding-bottom: 5px;
+  display: flex;
+  margin: 0 auto;
+  justify-content: center;
+}
+
+.card-index {
+  text-align: center;
+  font-size: 13px;
+  margin: auto 5px;
+}
+
+.mat-mdc-button>.mat-icon {
+  margin: 0;
+}
+
+.mat-mdc-button {
+  border-radius: 25% / 50%;
+}
